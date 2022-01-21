@@ -58,6 +58,15 @@ app.get('/cakecategory/:id',(req,res)=>{
     })
 })
 
+//retrun categories
+
+app.get('/cakecategory',(req,res)=>{
+    db.collection('cakecategory').find().toArray((err,result)=>{
+        if (err) throw err;
+        res.send(result)
+    })
+})
+
 
 //return the all cakes on the basis of subcategory id
 
