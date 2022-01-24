@@ -100,11 +100,13 @@ app.post('/cake',(req,res) => {
 
 // return all the orders
 app.get('/cakeorder',(req,res) => {
-    db.collection('cakeorder').find().toArray((err,result) => {
+    var que =req.query.email;
+    db.collection('cakeorder').find({email:que}).toArray((err,result) => {
         if(err) throw err;
         res.send(result)
     })
 })
+
 
  app.post('/placeorder',(req,res)=>{
      console.log(req.body);
