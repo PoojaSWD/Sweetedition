@@ -127,7 +127,7 @@ app.get('/cakeorder',(req,res) => {
 
  //update the order status
 app.put('/updateStatus/:id',(req,res) => {
-    var id = Number(req.params.id);
+    var id = req.params.id;
     var status = req.body.status?req.body.status:"Pending"
     db.collection('cakeorder').updateOne(
         {id:id},
